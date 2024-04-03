@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String customMessage = "Yet another message here!";
-		String pName = request.getParameter("name");
+		String paramName = request.getParameter("name");
+		String[] defaultNames = {"Bond", "Romain", "Raphules"}; 
 
 		request.setAttribute("customMessage", customMessage);
-		request.setAttribute("name", pName);
+		request.setAttribute("name", paramName);
+		request.setAttribute("names", defaultNames);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
 	}
 }

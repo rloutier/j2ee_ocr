@@ -7,7 +7,8 @@
 </head>
 <body>
     <%@ include file="links.html" %>
-    <p>On first.jsp, we feel good ! Agreed, <%= request.getAttribute("name") %> ?! :-)</p>
+    <p>On first.jsp, we feel good ! Agreed, ${empty name ? "dear visitor" : name} ?! :-)</p>
+    <p>Let's display a String array item: ${names[1]}</p>
     <p>
         <% 
             String customMessage = (String) request.getAttribute("customMessage");
