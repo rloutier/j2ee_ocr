@@ -6,15 +6,18 @@
     <title>First JSP</title>
 </head>
 <body>
-    <%@ include file="links.html" %>
     <p>On first.jsp, we feel good ! Agreed, ${empty name ? "dear visitor" : name} ?! :-)</p>
-    <p>Let's display a String array item: ${names[1]}</p>
+    <p>Let's display a String array item: ${names[2]}</p>
+    <br>
+    <p>Current known author is ${author.firstName}, ${author.lastName}.</p>
+    <p>He is currently ${ author.active ? 'pretty active!' : "on inactive mode ;-)"}</p>
     <p>
         <% 
             String customMessage = (String) request.getAttribute("customMessage");
             out.println(customMessage);
         %>
         <%= request.getAttribute("customMessage") %>
+        ${customMessage}
     </p>
     <p>
        <% 
