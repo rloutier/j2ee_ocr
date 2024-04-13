@@ -14,23 +14,21 @@
     <!-- This is displayed AS IS, and can be dangerous ! -->
     <%= "<em>Here's a test for JSTL proper installation!</em>" %>
 
+    <c:set var="aMsg" scope="page" value="Winter's coming!"/>
     <p>
-        Avec une variable et EL (?): 
-        <c:out value="${unknownVariable}" default="EMPTY"/>
+        JSTL display with a variable via EL: 
+        <c:out value="${aMsg}" default="EMPTY"/>
     </p>
 
+    <c:remove var="aMsg" scope="page" />
     <p>
-        Default inside tag:
-        <c:out value="${unknownVariable}">EMPTY</c:out>
+        Here with a default "inside tag":
+        <c:out value="${aMsg}">EMPTY</c:out>
     </p>
-
-    <c:set var="dummyVar" value="Winter's coming!" scope="page" />
-    <p><c:out value="${dummyVar}"/></p>
-
+    
     <!-- Pour modifier "un bean" on utilise: -->
     <%-- <c:set target="${author}" property="name" value="Dahl" />
-    <=> author.name = "Dahl" --%>
+    ===> author.name = "Dahl" --%>
 
-    <c:remove var="dummyVar" scope="page" />
 </body>
 </html>
