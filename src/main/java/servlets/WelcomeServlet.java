@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/")
 public class WelcomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String[] titles = {"Silence des agneaux", "Seigneur des anneaux", "Saigneur des agneaux"};
+		request.setAttribute("titles", titles);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
 	}
 }
