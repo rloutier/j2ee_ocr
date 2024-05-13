@@ -5,6 +5,20 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     version="4.0">
   <display-name>j2eeOCR</display-name>
+  <servlet>
+    <servlet-name>Uploading</servlet-name>
+    <servlet-class>servlets.Upload</servlet-class>
+    <multipart-config>
+        <location>C:\Temp\upload</location>
+        <max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+        <max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+        <file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>Uploading</servlet-name>
+      <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
